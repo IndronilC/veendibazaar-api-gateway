@@ -50,12 +50,12 @@ public class JwtAuthFilter implements GlobalFilter, Ordered {
                 String userId = claims.getSubject();
 
                 // 3. Extract roles safely
-                Object rolesObject = claims.get("roles");
+                Object authoritiesObject = claims.get("authorities");
 
                 final List<String> roles;
 
-                if (rolesObject instanceof List<?>) {
-                    roles = ((List<?>) rolesObject)
+                if (authoritiesObject instanceof List<?>) {
+                    roles = ((List<?>) authoritiesObject)
                             .stream()
                             .map(Object::toString)
                             .toList();

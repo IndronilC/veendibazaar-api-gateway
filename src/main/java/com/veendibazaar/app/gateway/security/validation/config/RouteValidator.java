@@ -10,12 +10,15 @@ import java.util.function.Predicate;
 public class RouteValidator {
 
     // Public endpoints (NO JWT required)
+
     private static final List<String> OPEN_API_ENDPOINTS = List.of(
-            "/api/v1/auth/authenticate",
-            "/api/v1/auth/activate-token",
+            "/api/v1/auth/login",
             "/api/v1/auth/register",
-            "/api/v1/auth/refresh"
+            "/api/v1/auth/authenticate",
+            "/api/v1/auth/refresh",
+            "/api/v1/auth/activate-account"
     );
+
 
     // Predicate to check if request is secured
     public Predicate<ServerHttpRequest> isSecured =
